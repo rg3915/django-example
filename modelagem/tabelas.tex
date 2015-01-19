@@ -1,0 +1,79 @@
+\documentclass[tikz]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz-uml}
+\usepackage[pdfpagelayout=SinglePage]{hyperref}
+
+\begin{document}
+
+\begin{tikzpicture}
+	\umlclass[x=0,y=0]{Pessoa}{
+		- id \\
+		- genero \\
+		- tratamento \\
+		- nome \\
+		- sobrenome \\
+		- cpf \\
+		- aniversario \\
+		- email \\
+		- fone \\
+		+ \color{blue}{cargo\_id} \\
+		- bloqueado \\
+		- criado\_em \\
+		- modificado\_em \\
+	}{}
+	\umlclass[x=-5,y=5]{Endereço}{
+		- id \\
+		- tipo\_endereco \\
+		- endereco \\
+		- num\_endereco \\
+		- complemento \\
+		- bairro \\
+		- cidade \\
+		- uf \\
+		- cep \\
+		+ \color{blue}{pessoa\_id} \\
+	}{}
+	\umlclass[x=-5,y=0]{Cargo}{
+		- id \\
+		- cargo \\
+	}{}
+	\umlclass[x=-5,y=-5]{Telefone}{
+		- id \\
+		- telefone \\
+		- tipo\_telefone \\
+		+ \color{blue}{pessoa\_id} \\
+	}{}
+	\umlclass[x=5,y=0,fill=green!20]{Produto}{
+		- id \\
+		- importado \\
+		- fora\_de\_linha \\
+		- ncm \\
+		+ \color{blue}{categoria\_id} \\
+		+ \color{blue}{marca\_id} \\
+		- produto \\
+		- custo \\
+		- icms \\
+		- ipi \\
+		- estoque \\
+		- estoque\_minimo \\
+		- criado\_em \\
+		- modificado\_em \\
+	}{}
+	\umlclass[x=10,y=2,fill=green!20]{Categoria}{
+		- id \\
+		- categoria \\
+	}{}
+	\umlclass[x=10,y=-2,fill=green!20]{Marca}{
+		- id \\
+		- marca \\
+	}{}
+
+	\umlassoc{Pessoa}{Endereço}
+	\umlassoc{Pessoa}{Cargo}
+	\umlassoc{Pessoa}{Telefone}
+	\umlassoc{Produto}{Categoria}
+	\umlassoc{Produto}{Marca}
+\end{tikzpicture}
+
+\end{document}

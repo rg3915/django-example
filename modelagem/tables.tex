@@ -1,0 +1,79 @@
+\documentclass[tikz]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz-uml}
+\usepackage[pdfpagelayout=SinglePage]{hyperref}
+
+\begin{document}
+
+\begin{tikzpicture}
+	\umlclass[x=0,y=0]{Person}{
+		- id \\
+		- gender \\
+		- treatment \\
+		- firstname \\
+		- lastname \\
+		- cpf \\
+		- birthdate \\
+		- email \\
+		- phone \\
+		+ \color{blue}{occupation\_id} \\
+		- blocked \\
+		- created\_at \\
+		- modified\_at \\
+	}{}
+	\umlclass[x=-5,y=5]{Address}{
+		- id \\
+		- type\_address \\
+		- address \\
+		- address\_number \\
+		- complement \\
+		- district \\
+		- city \\
+		- uf \\
+		- cep \\
+		+ \color{blue}{person\_id} \\
+	}{}
+	\umlclass[x=-5,y=0]{Occupation}{
+		- id \\
+		- occupation \\
+	}{}
+	\umlclass[x=-5,y=-5]{Phone}{
+		- id \\
+		- phone \\
+		- type\_phone \\
+		+ \color{blue}{person\_id} \\
+	}{}
+	\umlclass[x=5,y=0,fill=green!20]{Product}{
+		- id \\
+		- imported \\
+		- outofline \\
+		- ncm \\
+		+ \color{blue}{category\_id} \\
+		+ \color{blue}{brand\_id} \\
+		- product \\
+		- cost \\
+		- icms \\
+		- ipi \\
+		- stock \\
+		- stock\_min \\
+		- created\_at \\
+		- modified\_at \\
+	}{}
+	\umlclass[x=10,y=2,fill=green!20]{Category}{
+		- id \\
+		- category \\
+	}{}
+	\umlclass[x=10,y=-2,fill=green!20]{Brand}{
+		- id \\
+		- brand \\
+	}{}
+
+	\umlassoc{Person}{Address}
+	\umlassoc{Person}{Occupation}
+	\umlassoc{Person}{Phone}
+	\umlassoc{Product}{Category}
+	\umlassoc{Product}{Brand}
+\end{tikzpicture}
+
+\end{document}

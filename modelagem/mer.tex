@@ -1,0 +1,39 @@
+\documentclass{standalone}
+\usepackage{tikz-er2}
+%\usetikzlibrary{positioning}
+
+\begin{document}
+
+\tikzstyle{every entity} = [fill=blue!20]
+\tikzstyle{every relationship} = [fill=red!20]
+\begin{tikzpicture}[node distance=4cm]
+	% pessoa
+	\node[entity] (pessoa) {Pessoa};
+	\node[relationship] (mora) [above left of=pessoa] {mora em} edge node[auto,swap] {1} (pessoa);
+	\node[relationship] (ocupa) [left of=pessoa] {ocupa um} edge node[auto,swap] {n} (pessoa);
+	\node[relationship] (possui) [below left of=pessoa] {possui} edge node[auto,swap] {1} (pessoa);
+
+	% Endereço
+	\node[entity] (Endereço) [left of=mora] {Endere\c {c}o} edge node[auto,swap] {n} (mora);
+
+	% Cargo
+	\node[entity] (cargo) [left of=ocupa] {Cargo} edge node[auto,swap] {1} (ocupa);
+
+	% Fone
+	\node[entity] (fone) [left of=possui] {Fone} edge node[auto,swap] {n} (possui);
+
+	% Produto
+	\node[entity] (produto) at (4,0) {Produto};
+	\node[relationship] (da) [below right of=produto] {da} edge node[auto,swap] {n} (produto);
+	\node[relationship] (de) [above right of=produto] {possui} edge node[auto,swap] {n} (produto);
+
+	% Marca
+	\node[entity] (marca) [right of=da] {Marca} edge node[auto,swap] {1} (da);
+
+	% Categoria
+	\node[entity] (categoria) [right of=de] {Categoria} edge node[auto,swap] {1} (de);
+
+
+\end{tikzpicture}
+
+\end{document}
