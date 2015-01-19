@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Product List</title>
+{% endblock title %}
+
+{% block content %}
+    <form class="navbar-form navbar-right" action="." method="get">
+        <!-- add -->
+        <a href="{% url 'product_form' %}">
+            <button id="new_sale" type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span> Adicionar
+            </button>
+        </a>
+        <!-- search form -->
+        <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control">
+        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+    </form>
+
+    <h1>Lista de Produtos <font size="3">(NCM fictício)</font></h1>
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Importado</th>
+                    <th class="text-center">NCM</th>
+                    <th>Categoria</th>
+                    <th>Marca</th>
+                    <th>Produto</th>
+					<th class="text-right">Custo</th>
+					<th class="text-right">ICMS</th>
+					<th class="text-right">IPI</th>
+					<th class="text-center">Estoque atual</th>
+					<th class="text-center">Estoque Min.</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for product in object_list %}
+				{% if product.stoq < product.stoq_min %}
+					<tr class="danger">
+				{% else %}
+					<tr>
+				{% endif %}
+						<td class="text-center">
+							{% if product.imported %}
+								<span class="glyphicon glyphicon-ok-sign" style="color: #44AD41"></span>
+							{% else %}
+								<span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span>
+							{% endif %}
+						</td>
+						<td class="text-center">{{ product.ncm }}</td>
+	                    <td>{{ product.category }}</td>
+						<td>{{ product.brand }}</td>
+	                    <td>{{ product.product }}</td>
+	                    <td class="text-right">{{ product.get_cost }}</td>
+	                    <td class="text-right">{{ product.icms }}</td>
+						<td class="text-right">{{ product.ipi }}</td>
+						<td class="text-center">{{ product.stock }}</td>
+						<td class="text-center">{{ product.stock_min }}</td>
+					</tr>
+            {% empty %}
+                <p>Sem itens na lista.</p>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+<!-- pagination -->
+{% include "pagination.html" %}
+
+{% endblock content %}

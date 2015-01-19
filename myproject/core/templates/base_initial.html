@@ -1,0 +1,51 @@
+<html>
+<head>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+{% block extrastyle %}{% endblock %}
+
+  <link rel="icon" href="http://s3.amazonaws.com/snaaakes-static/img/colophon/django.png">
+
+  <link href="{{ STATIC_URL }}css/bootstrap-social.css" rel="stylesheet">
+  <link href="{{ STATIC_URL }}font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    {% block title %}
+        <title>Django Example</title>
+    {% endblock title %}
+
+  <style>
+    body {
+      padding-top: 70px;
+    }
+    .navbar-rg{background-color:#4590C4}
+    .navbar a{color:#DCE1F0}
+  </style>
+
+</head>
+
+<body>
+
+  {% block menu %}{% endblock menu %}
+
+  <div class="container">
+    {% block content %}
+
+    {% endblock content %}
+  </div>
+
+  {% block javascript %}
+    <!-- Latest JQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- <script src="{{ STATIC_URL }}js/jquery.js"></script> -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!-- <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script> -->
+  {% endblock javascript %}
+
+</body>
+</html>
+

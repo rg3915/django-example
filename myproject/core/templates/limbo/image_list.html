@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Product List</title>
+{% endblock title %}
+
+{% block content %}
+    <form class="navbar-form navbar-right" action="." method="get">
+        <!-- add -->
+        <a href="{% url 'person_form' %}">
+            <button id="new_sale" type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span> Adicionar
+            </button>
+        </a>
+        <!-- search form -->
+        <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control">
+        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+    </form>
+
+    <h1>Lista de Produtos <font size="3">(NCM fictício)</font></h1>
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Importado</th>
+                    <th class="text-center">NCM</th>
+                    <th>Categoria</th>
+                    <th>Marca</th>
+                    <th>Produto</th>
+					<th class="text-right">Custo</th>
+					<th class="text-right">ICMS</th>
+					<th class="text-right">IPI</th>
+					<th class="text-center">Estoque atual</th>
+					<th class="text-center">Estoque Min.</th>
+                </tr>
+            </thead>
+            <tbody>
+        <div class="row centered mt mb">
+            {% for product in object_list %}
+			
+					<div class="col-lg-4 col-md-4 col-sm-4 gallery">
+						{{ product.product }}
+					</div>
+
+            {% empty %}
+                <p>Sem itens na lista.</p>
+            {% endfor %}
+        </div>
+            </tbody>
+        </table>
+    </div>
+
+<!-- pagination -->
+{% include "pagination.html" %}
+
+{% endblock content %}

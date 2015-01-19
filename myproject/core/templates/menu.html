@@ -1,0 +1,47 @@
+<!-- Menu -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'home' %}">Site</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li><a href="{% url 'person_list' %}">Pessoa</a></li>
+        <li><a href="{% url 'product_list' %}">Produto</a></li>
+        <!-- to resolve NoReverseMatch for 'admin' -->
+        <li><a href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Cadastrar <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header">Cadastro de Pessoas</li>
+            <li><a href="{% url 'person_form' %}">Pessoa</a></li>
+            <li><a href="{% url 'occupation_form' %}">Profissão</a></li>
+            <li><a href="{% url 'address_form' %}">Endereço</a></li>
+            <li><a href="{% url 'phone_form' %}">Telefone</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Cadastro de Produtos</li>
+            <li><a href="{% url 'product_form' %}">Produto</a></li>
+            <li><a href="{% url 'brand_form' %}">Marca</a></li>
+            <li><a href="{% url 'category_form' %}">Categoria</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-search"></span> Buscar</a></li> -->
+        <li><a href="{% url 'contact' %}"><span class="glyphicon glyphicon-envelope"></span> Contato</a></li>
+        <li><a href="{% url 'download' %}"><span class="glyphicon glyphicon-download-alt"></span> Download</a></li>
+        <li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-exclamation-sign"></span> Sobre</a></li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
