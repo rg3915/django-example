@@ -1,7 +1,3 @@
-ps:
-	xmacroplay :0.0 < short
-	clear
-
 install:
 	pip install -r requirements.txt
 	# pip uninstall pyparsing
