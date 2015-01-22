@@ -17,7 +17,7 @@ type_address_list = (
 
 
 address_list = []
-repeat = 20
+repeat = 10
 print('\nwait...\n')
 with io.open('fixtures/enderecos.csv', 'wt') as f:
     f.write(
@@ -47,6 +47,7 @@ with io.open('fixtures/enderecos.csv', 'wt') as f:
         # id, type_address, address, address_number, district, city, uf, cep, person
         address_list.append(
             (i + 1, type_address, address, address_number, district, city, uf, cep, person))
+    print('\nbe patient...\n')
     for l in address_list:
         s = str(l[0]) + "," + str(l[1]) + "," + \
             str(l[2]) + "," + str(l[3]) + "," + \
