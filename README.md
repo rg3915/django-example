@@ -23,3 +23,8 @@ Instalando as dependências e continuando
 	$ cd ..
 	$ cd ..
 	$ python manage.py runserver
+
+Veja os [screenshots][0] e a [modelagem][1].
+
+[0]: 
+[1]:
