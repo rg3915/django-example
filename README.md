@@ -26,5 +26,5 @@ Instalando as dependências e continuando
 
 Veja os [screenshots][0] e a [modelagem][1].
 
-[0]: 
-[1]:
+[0]: https://github.com/rg3915/django-example/tree/master/screenshot
+[1]: https://github.com/rg3915/django-example/tree/master/modelagem
