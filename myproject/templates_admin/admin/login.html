@@ -34,6 +34,10 @@
     <h2 class="form-signin-heading">Login</h2>
 
     <div>
+      <!-- Usei django-bootstrap para renderizar todos os campos de uma vez
+      Os campos originais são:
+      {{ form.username }}
+      {{ form.password }} -->
       {% bootstrap_form form %}
       {% buttons %}
         <button class="btn btn-lg btn-primary btn-block" type="submit">{% trans 'Log in' %}</button>

@@ -1,0 +1,164 @@
+id,occupation
+1,acougueiro
+2,acupunturista
+3,advogado
+4,almoxarife
+5,analista financeiro
+6,analista programador
+7,analista programador .net
+8,analista programador advpl
+9,analista programador android
+10,analista programador asp.net
+11,analista programador c#
+12,analista programador c++
+13,analista programador cobol
+14,analista programador delphi
+15,analista programador java
+16,analista programador mainframe
+17,analista programador oracle
+18,analista programador php
+19,analista programador pl sql
+20,analista programador progress
+21,analista programador protheus
+22,analista programador sharepoint
+23,analista programador sql
+24,analista programador vb6
+25,analista programador web
+26,analista programador websphere
+27,arquiteto de informacao
+28,arquiteto de interiores
+29,arquiteto de sistemas
+30,assistente administrativo
+31,assistente comercial
+32,assistente contabil
+33,ator
+34,azulejista
+35,baba
+36,back office
+37,balconista
+38,barista
+39,barman
+40,biologo
+41,biomedico
+42,bioquimico
+43,bombeiro civil
+44,cabeleireiro
+45,caseiro
+46,comprador
+47,confeiteiro
+48,contador
+49,costureiro
+50,cozinheiro
+51,dba
+52,dba oracle
+53,dba sql
+54,degustador
+55,dentista
+56,desenhista projetista
+57,designer
+58,eletricista
+59,eletricista de veiculos
+60,eletricista predial
+61,encanador
+62,encanador industrial
+63,engenheiro ambiental
+64,engenheiro civil
+65,engenheiro de computacao
+66,escriturario
+67,fiscal de loja
+68,fisico
+69,fisioterapeuta
+70,fonoaudiologo
+71,fotografo
+72,garcom
+73,gastronomo
+74,geografo
+75,geologo
+76,gerente administrativo
+77,gerente comercial
+78,guia de turismo
+79,instalador
+80,interprete de libras
+81,jardineiro
+82,jornalista
+83,manobrista
+84,marceneiro
+85,matematico
+86,mecanico
+87,meio oficial carpinteiro
+88,meio oficial de manutencao
+89,mestre de obras
+90,motoboy
+91,motorista
+92,nutricionista
+93,office-boy
+94,oficial de manutencao
+95,orcamentista
+96,padeiro
+97,palestrante
+98,pedreiro
+99,pesquisador
+100,pintor
+101,pintor de moveis
+102,pintor eletrostatico
+103,pizzaiolo
+104,podologo
+105,professor
+106,professor universitario
+107,programador .net
+108,programador abap
+109,programador android
+110,programador asp
+111,programador asp.net
+112,programador back-end
+113,programador c#
+114,programador c++
+115,programador de banco de dados
+116,programador de software
+117,programador java
+118,programador javascript
+119,programador linux
+120,programador php
+121,programador python
+122,programador ruby on rails
+123,programador sap
+124,programador soa
+125,programador web
+126,promotor de merchandising
+127,promotor de vendas
+128,psicologo
+129,psicopedagogo
+130,publicitario
+131,quimico
+132,reporter
+133,repositor
+134,salgadeiro
+135,sapateiro
+136,secretaria
+137,secretaria executiva
+138,seguranca
+139,servente de obras
+140,sindico
+141,sociologo
+142,soldador
+143,supervisor de vendas
+144,supervisor financeiro
+145,suporte tecnico
+146,sushiman
+147,tecnico eletricista
+148,tecnico eletroeletronico
+149,tecnico em informatica
+150,telefonista
+151,telhadista
+152,tesoureiro
+153,tradutor
+154,vendedor
+155,vendedor de loja
+156,vendedor externo
+157,veterinario
+158,vidraceiro
+159,vigilante
+160,web designer
+161,web developer
+162,webmaster
+163,zelador

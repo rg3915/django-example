@@ -14,3 +14,5 @@ create:
 
 mer:
 	./manage.py graph_models -e -g -l dot -o modelagem/core.png core
+
+setup: install create

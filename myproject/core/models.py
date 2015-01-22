@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.formats import number_format
@@ -23,10 +24,9 @@ class Person(TimeStampedModel):
     lastname = models.CharField(_('sobrenome'), max_length=30)
     cpf = models.CharField(_('CPF'), max_length=11, unique=True)
     birthdate = models.DateTimeField(_('nascimento'))
-    email = models.EmailField(_('e-mail'), blank=True)
-    phone = models.CharField(_('fone'), max_length=18, blank=True)
+    email = models.EmailField(_('e-mail'))
     occupation = models.ForeignKey(
-        "Occupation", verbose_name=_(u'profissão'), blank=True)
+        "Occupation", verbose_name=_(u'profissão'))
     active = models.BooleanField(_('ativo'), default=True)
     blocked = models.BooleanField(_('bloqueado'), default=False)
 
@@ -45,6 +45,7 @@ class Occupation(models.Model):
     occupation = models.CharField(_(u'Profissão'), max_length=30)
 
     class Meta:
+        ordering = ['occupation']
         verbose_name = u"profissão"
         verbose_name_plural = u"profissões"
 
@@ -57,7 +58,7 @@ class Address(models.Model):
         _(u'tipo de endereço'), max_length=1, choices=type_address_list, default='i')
     address = models.CharField(_(u'endereço'), max_length=80)
     address_number = models.PositiveIntegerField(_(u'número'))
-    complement = models.CharField(_('complemento'), max_length=80)
+    complement = models.CharField(_('complemento'), max_length=80, blank=True)
     district = models.CharField(_('bairro'), max_length=80)
     city = models.CharField(_('cidade'), max_length=80)
     uf = models.CharField(_('UF'), max_length=2, choices=uf_list)
@@ -92,6 +93,7 @@ class Brand(models.Model):
     brand = models.CharField(_('marca'), max_length=30)
 
     class Meta:
+        ordering = ['brand']
         verbose_name = "marca"
         verbose_name_plural = "marcas"
 
@@ -103,6 +105,7 @@ class Category(models.Model):
     category = models.CharField(_('categoria'), max_length=30)
 
     class Meta:
+        ordering = ['category']
         verbose_name = "categoria"
         verbose_name_plural = "categorias"
 
@@ -135,3 +138,9 @@ class Product(TimeStampedModel):
 
     def get_cost(self):
         return u"R$ %s" % number_format(self.cost, 2)
+
+    def get_icms(self):
+        return u"%s" % number_format(self.icms * 100, 0)
+
+    def get_ipi(self):
+        return u"%s" % number_format(self.ipi * 100, 0)

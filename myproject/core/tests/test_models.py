@@ -20,7 +20,6 @@ class PersonModelTest(TestCase):
             cpf='11122233396',
             birthdate='1979-05-31T00:00:00+00:00',
             email='r.santos@example.com',
-            phone=1,
             blocked=False,
         )
 
@@ -58,7 +57,6 @@ class PersonUniqueTest(TestCase):
             cpf='11122233396',
             birthdate='1979-05-31T00:00:00+00:00',
             email='r.santos@example.com',
-            phone=1,
             blocked=False,
         )
 
@@ -73,7 +71,6 @@ class PersonUniqueTest(TestCase):
             cpf='11122233396',
             birthdate='1979-05-31T00:00:00+00:00',
             email='r.santos@example.com',
-            phone=1,
             blocked=False,
         )
         self.assertRaises(IntegrityError, p.save)
@@ -107,7 +104,6 @@ class AddressModelTest(TestCase):
             cpf='11122233396',
             birthdate='1979-05-31T00:00:00+00:00',
             email='r.santos@example.com',
-            phone=1,
             blocked=False,
         )
 
@@ -146,7 +142,6 @@ class PhoneModelTest(TestCase):
             cpf='11122233396',
             birthdate='1979-05-31T00:00:00+00:00',
             email='r.santos@example.com',
-            phone=1,
             blocked=False,
         )
 

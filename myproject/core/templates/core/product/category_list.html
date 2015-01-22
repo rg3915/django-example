@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Category List</title>
+{% endblock title %}
+
+{% block content %}
+    <form class="navbar-form navbar-right" action="." method="get">
+        <!-- add -->
+        <a href="{% url 'category_add' %}">
+            <button id="new_sale" type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span> Adicionar
+            </button>
+        </a>
+        <!-- search form -->
+        <input id="search_box" name="search_box" type="text" placeholder="Localizar..." class="form-control">
+        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+    </form>
+
+    <h1>Lista de {{ name_plural.capitalize }}</h1>
+
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for category in category_list %}
+                <tr>
+                    <td>{{ category.category }}</td>
+                </tr>
+            {% empty %}
+                <p>Sem itens na lista.</p>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+    <div>
+        <h3><b>Total:</b> {{ count }}
+            {% if count <= 1 %}
+                {{ name }}
+            {% else %}
+                {{ name_plural }}
+            {% endif %}
+        </h3>
+    </div>
+
+<!-- pagination -->
+{% include "pagination.html" %}
+
+{% endblock content %}

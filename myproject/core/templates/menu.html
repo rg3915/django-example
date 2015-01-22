@@ -12,25 +12,39 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-        <li><a href="{% url 'person_list' %}">Pessoa</a></li>
-        <li><a href="{% url 'product_list' %}">Produto</a></li>
-        <!-- to resolve NoReverseMatch for 'admin' -->
-        <li><a href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
-
+        <li><a href="{% url 'person_list' %}"><span class="glyphicon glyphicon-user"></span> Pessoas</a></li>
+        <li><a href="{% url 'product_list' %}"><span class="glyphicon glyphicon-tags"></span> Produtos</a></li>
+        <!-- Outros -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"></span> Outros <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header">Lista de Pessoas</li>
+            <li><a href="{% url 'person_list' %}">Pessoa</a></li>
+            <li><a href="{% url 'occupation_list' %}">Profissão</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Lista de Produtos</li>
+            <li><a href="{% url 'product_list' %}">Produto</a></li>
+            <li><a href="{% url 'brand_list' %}">Marca</a></li>
+            <li><a href="{% url 'category_list' %}">Categoria</a></li>
+          </ul>
+        <!-- Cadastrar -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Cadastrar <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li class="dropdown-header">Cadastro de Pessoas</li>
-            <li><a href="{% url 'person_form' %}">Pessoa</a></li>
-            <li><a href="{% url 'occupation_form' %}">Profissão</a></li>
-            <li><a href="{% url 'address_form' %}">Endereço</a></li>
-            <li><a href="{% url 'phone_form' %}">Telefone</a></li>
+            <li><a href="{% url 'person_add' %}">Pessoa</a></li>
+            <li><a href="{% url 'occupation_add' %}">Profissão</a></li>
+            <li><a href="{% url 'address_add' %}">Endereço</a></li>
+            <li><a href="{% url 'phone_add' %}">Telefone</a></li>
             <li class="divider"></li>
             <li class="dropdown-header">Cadastro de Produtos</li>
-            <li><a href="{% url 'product_form' %}">Produto</a></li>
-            <li><a href="{% url 'brand_form' %}">Marca</a></li>
-            <li><a href="{% url 'category_form' %}">Categoria</a></li>
+            <li><a href="{% url 'product_add' %}">Produto</a></li>
+            <li><a href="{% url 'brand_add' %}">Marca</a></li>
+            <li><a href="{% url 'category_add' %}">Categoria</a></li>
           </ul>
+
+        <!-- to resolve NoReverseMatch for 'admin' -->
+        <li><a href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
         </li>
       </ul>
 
