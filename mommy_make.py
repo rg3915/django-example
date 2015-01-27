@@ -4,7 +4,7 @@ from myproject.core.models import Person, Occupation, Address, Phone, Product, B
 import names
 
 customers = mommy.make(
-    Person, firstname=names.get_first_name, lastname=names.get_last_name, _quantity=20)
+    Person, first_name=names.get_first_name, last_name=names.get_last_name, _quantity=20)
 occupation = mommy.make(Occupation, _quantity=10)
 address = mommy.make(Address, _quantity=10)
 phone = mommy.make(Phone, _quantity=10)

@@ -5,11 +5,11 @@ from .models import Person, Occupation, Address, Phone, Brand, Category, Product
 class PersonAdmin(admin.ModelAdmin):
 
     """Customize the look of the auto-generated admin for the Person model"""
-    ordering = ['firstname']
+    ordering = ['first_name']
     list_display = (
         '__str__', 'cpf', 'email', 'occupation', 'created_at', 'active', 'blocked')
     date_hierarchy = 'created_at'
-    search_fields = ('firstname', 'lastname')
+    search_fields = ('first_name', 'last_name')
     list_filter = ('gender', 'active', 'blocked',)
 
 
@@ -20,7 +20,7 @@ class AddressAdmin(admin.ModelAdmin):
     list_display = (
         'person', 'address', 'district', 'city', 'uf', 'cep', 'type_address')
     search_fields = (
-        'person__firstname', 'address', 'district', 'city', 'cep')
+        'person__first_name', 'address', 'district', 'city', 'cep')
     list_filter = ('type_address', 'uf')
 
 
@@ -29,7 +29,7 @@ class PhoneAdmin(admin.ModelAdmin):
     """Customize the look of the auto-generated admin for the Phone model"""
     ordering = ['person']
     list_display = ('person', 'phone', 'type_phone')
-    search_fields = ('person__firstname',)
+    search_fields = ('person__first_name',)
     list_filter = ('type_phone',)
 
 

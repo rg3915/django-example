@@ -15,17 +15,17 @@ class PersonModelTest(TestCase):
             occupation=self.occupation,
             gender='M',
             treatment='sr',
-            firstname='Regis',
-            lastname='da Silva',
+            first_name='Regis',
+            last_name='da Silva',
             cpf='11122233396',
-            birthdate='1979-05-31T00:00:00+00:00',
+            birthday='1979-05-31T00:00:00+00:00',
             email='r.santos@example.com',
             blocked=False,
         )
 
     def test_create(self):
         """
-        Person must have gender, firstname, lastname, cpf, birthdate, email,
+        Person must have gender, first_name, last_name, cpf, birthday, email,
         phone, occupation, blocked
         """
         self.person.save()
@@ -52,10 +52,10 @@ class PersonUniqueTest(TestCase):
             occupation=self.occupation,
             gender='M',
             treatment='sr',
-            firstname='Regis',
-            lastname='da Silva',
+            first_name='Regis',
+            last_name='da Silva',
             cpf='11122233396',
-            birthdate='1979-05-31T00:00:00+00:00',
+            birthday='1979-05-31T00:00:00+00:00',
             email='r.santos@example.com',
             blocked=False,
         )
@@ -66,10 +66,10 @@ class PersonUniqueTest(TestCase):
             occupation=self.occupation,
             gender='M',
             treatment='sr',
-            firstname='Regis',
-            lastname='da Silva',
+            first_name='Regis',
+            last_name='da Silva',
             cpf='11122233396',
-            birthdate='1979-05-31T00:00:00+00:00',
+            birthday='1979-05-31T00:00:00+00:00',
             email='r.santos@example.com',
             blocked=False,
         )
@@ -99,10 +99,10 @@ class AddressModelTest(TestCase):
             occupation=self.occupation,
             gender='M',
             treatment='sr',
-            firstname='Regis',
-            lastname='da Silva',
+            first_name='Regis',
+            last_name='da Silva',
             cpf='11122233396',
-            birthdate='1979-05-31T00:00:00+00:00',
+            birthday='1979-05-31T00:00:00+00:00',
             email='r.santos@example.com',
             blocked=False,
         )
@@ -137,10 +137,10 @@ class PhoneModelTest(TestCase):
             occupation=self.occupation,
             gender='M',
             treatment='sr',
-            firstname='Regis',
-            lastname='da Silva',
+            first_name='Regis',
+            last_name='da Silva',
             cpf='11122233396',
-            birthdate='1979-05-31T00:00:00+00:00',
+            birthday='1979-05-31T00:00:00+00:00',
             email='r.santos@example.com',
             blocked=False,
         )

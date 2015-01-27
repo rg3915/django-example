@@ -17,17 +17,17 @@ class PersonFormTest(TestCase):
     def test_name_must_be_capitalized(self):
         'Name must be capitalized.'
         form = self.make_validated_form(name='REGIS')
-        self.assertEqual('Regis', form.cleaned_data['firstname'])
+        self.assertEqual('Regis', form.cleaned_data['first_name'])
 
     def make_validated_form(self, **kwargs):
         data = dict(
             occupation=1,
             gender='M',
             treatment='sr',
-            firstname='Regis',
-            lastname='da Silva',
+            first_name='Regis',
+            last_name='da Silva',
             cpf='11122233396',
-            birthdate='1979-05-31T00:00:00+00:00',
+            birthday='1979-05-31T00:00:00+00:00',
             email='r.santos@example.com',
             phone=1,
             blocked=False,

@@ -1,4 +1,4 @@
-id,gender,treatment,firstname,lastname,cpf,birthdate,email,occupation,active,blocked,created_at,modified_at
+id,gender,treatment,first_name,last_name,cpf,birthday,email,occupation,active,blocked,created_at,modified_at
 1,M,a,Derek,Gordon,96516886642,1981-11-05 06:13:40.606380+00,d.gordon@example.com,10,True,False,2015-01-21 17:01:17.452046+00,2015-01-21 17:01:17.452046+00
 2,M,sr,David,Semaan,51399349844,1993-12-06 03:57:35.662965+00,d.semaan@example.com,36,False,True,2015-01-21 17:01:17.490289+00,2015-01-21 17:01:17.490289+00
 3,F,d,Lucinda,Rumsey,27430595057,1995-11-10 02:57:54.750342+00,l.rumsey@example.com,84,False,True,2015-01-21 17:01:17.497422+00,2015-01-21 17:01:17.497422+00

@@ -14,7 +14,7 @@ with io.open('fixtures.json', 'wt') as f:
         lname = names.get_last_name()
         email = fname[0].lower() + '.' + lname.lower() + '@email.com'
         b = random.choice(['true', 'false'])
-        # pk, firstname, lastname, cpf, birthdate, email, phone, blocked,
+        # pk, first_name, last_name, cpf, birthday, email, phone, blocked,
         # created_at, modified_at
         lista.append(
             (i + 1, fname, lname, gen_cpf(), gen_timestamp(), email, gen_phone(), b, date, date))
@@ -24,10 +24,10 @@ with io.open('fixtures.json', 'wt') as f:
             str('  "pk": ') + str(l[0]) + ",\n" + \
             str('  "model": "core.person",\n') + \
             str('  "fields": {\n') + \
-            str('    "firstname": "') + l[1] + str('",\n') + \
-            str('    "lastname": "') + l[2] + str('",\n') + \
+            str('    "first_name": "') + l[1] + str('",\n') + \
+            str('    "last_name": "') + l[2] + str('",\n') + \
             str('    "cpf": "') + l[3] + str('",\n') + \
-            str('    "birthdate": "') + l[4] + str('",\n') + \
+            str('    "birthday": "') + l[4] + str('",\n') + \
             str('    "email": "') + l[5] + str('",\n') + \
             str('    "phone": "') + l[6] + str('",\n') + \
             str('    "blocked": ') + l[7] + str(',\n') + \

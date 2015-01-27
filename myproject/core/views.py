@@ -25,7 +25,7 @@ class PersonList(ListView):
         persons = Person.objects.all()
         var_get_search = self.request.GET.get('search_box')
         if var_get_search is not None:
-            persons = persons.filter(firstname__icontains=var_get_search)
+            persons = persons.filter(first_name__icontains=var_get_search)
         return persons
 
 

@@ -20,10 +20,10 @@ class Person(TimeStampedModel):
     gender = models.CharField(_(u'gênero'), max_length=1, choices=gender_list)
     treatment = models.CharField(
         _('tratamento'), max_length=4, choices=treatment_list)
-    firstname = models.CharField(_('nome'), max_length=30)
-    lastname = models.CharField(_('sobrenome'), max_length=30)
+    first_name = models.CharField(_('nome'), max_length=30)
+    last_name = models.CharField(_('sobrenome'), max_length=30)
     cpf = models.CharField(_('CPF'), max_length=11, unique=True)
-    birthdate = models.DateTimeField(_('nascimento'))
+    birthday = models.DateTimeField(_('nascimento'))
     email = models.EmailField(_('e-mail'))
     occupation = models.ForeignKey(
         "Occupation", verbose_name=_(u'profissão'))
@@ -31,12 +31,12 @@ class Person(TimeStampedModel):
     blocked = models.BooleanField(_('bloqueado'), default=False)
 
     class Meta:
-        ordering = ['firstname']
+        ordering = ['first_name']
         verbose_name = "pessoa"
         verbose_name_plural = "pessoas"
 
     def __str__(self):
-        return u"%s %s" % (self.firstname, self.lastname)
+        return u"%s %s" % (self.first_name, self.last_name)
 
     full_name = property(__str__)
 
