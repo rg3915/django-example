@@ -11,6 +11,8 @@ urlpatterns = patterns(
     url(r'^persons/(?P<pk>\d+)/$',
         PersonDetail.as_view(), name='person_detail'),
     url(r'^products/$', ProductList.as_view(), name='product_list'),
+    url(r'^products/(?P<pk>\d+)/$',
+        ProductDetail.as_view(), name='product_detail'),
     url(r'^brands/$', BrandList.as_view(), name='brand_list'),
     url(r'^categorys/$', CategoryList.as_view(), name='category_list'),
 

@@ -139,6 +139,9 @@ class Product(TimeStampedModel):
     def __str__(self):
         return self.product
 
+    def get_product_detail_url(self):
+        return u"/products/%i" % self.id
+
     def get_cost(self):
         return u"R$ %s" % number_format(self.cost, 2)
 

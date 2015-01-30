@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Product Detail</title>
+{% endblock title %}
+
+{% block content %}
+		<ul class="list-group col-xs-8 lead">
+			<li class="list-group-item">
+				<span class="col-md-6 text-right"><b>Produto</b></span>
+				{{ object.product }}</li>
+
+			<li class="list-group-item">
+				<span class="col-md-6 text-right"><b>Importado</b></span>
+				{% if object.imported %}
+					<span class="glyphicon glyphicon-ok-sign" style="color: #44AD41"></span>
+				{% else %}
+					<span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span>
+				{% endif %}
+			</li>
+
+			<li class="list-group-item">
+				<span class="col-md-6 text-right"><b>Fora de linha</b></span>
+				{% if object.outofline %}
+					<span class="glyphicon glyphicon-ok-sign" style="color: #44AD41"></span>
+				{% else %}
+					<span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span>
+				{% endif %}
+			</li>
+
+			<li class="list-group-item">
+				<span class="col-md-6 text-right"><b>NCM</b></span>
+				{{ object.ncm }}</li>
+			<!-- deixei comentado porque as categorias nao tem nada a ver,
+				nao fazem sentido real, sao aleatorios -->
+			<!-- <li class="list-group-item">
+				<span class="col-md-6 text-right"><b>Categoria</b></span>
+				{{ object.category }}</li> -->
+			<li class="list-group-item">
+				<span class="col-md-6 text-right"><b>Marca</b></span>
+				{{ object.brand }}</li>
+			<li class="list-group-item">
+				<span class="col-md-6 text-right"><b>Custo</b></span>
+				{{ object.cost }}</li>
+			<li class="list-group-item">
+				<span class="col-md-6 text-right"><b>ICMS</b></span>
+				{{ object.get_icms }}%</li>
+
+			<li class="list-group-item">
+				<span class="col-md-6 text-right"><b>IPI</b></span>
+				{% if object.get_ipi == "0" %}
+					---</li>
+				{% else %}
+					{{ object.get_ipi }}%</li>
+				{% endif %}
+
+			<li class="list-group-item">
+				<span class="col-md-6 text-right"><b>Estoque</b></span>
+				{{ object.stock }}</li>
+			<li class="list-group-item">
+				<span class="col-md-6 text-right"><b>Estoque Mínimo</b></span>
+				{{ object.stock_min }}</li>
+		</ul>
+{% endblock content %}

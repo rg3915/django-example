@@ -30,7 +30,7 @@
                 <tbody>
                 {% for brand in brand_list %}
                     <tr>
-                        <td>{{ brand.brand }}</td>
+                        <td>{{ brand.brand.capitalize }}</td>
                     </tr>
                 {% empty %}
                     <p>Sem itens na lista.</p>

@@ -49,7 +49,7 @@
     							{% endif %}
     						</td>
     						<td class="text-center">{{ product.ncm }}</td>
-    	                    <td>{{ product.product }}</td>
+    	                    <td><a href="{{ product.get_product_detail_url }}">{{ product.product }}</a></td>
                             <td>{{ product.brand }}</td>
     	                    <td class="text-right">{{ product.get_cost }}</td>
     						
