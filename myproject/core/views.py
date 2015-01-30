@@ -132,11 +132,6 @@ class ProductDetail(DetailView):
     template_name = 'core/product/product_detail.html'
     model = Product
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(ProductDetail, self).get_context_data(**kwargs)
-    #     product = Product.objects.get(pk=self.kwargs['pk'])
-    #     return context
-
 
 class ProductCreate(CreateView):
     template_name = 'core/product/product_create_form.html'
