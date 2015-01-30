@@ -40,6 +40,9 @@ class Person(TimeStampedModel):
 
     full_name = property(__str__)
 
+    def get_person_detail_url(self):
+        return u"/persons/%i" % self.id
+
 
 class Occupation(models.Model):
     occupation = models.CharField(_(u'Profissão'), max_length=30)
@@ -64,7 +67,7 @@ class Address(models.Model):
     uf = models.CharField(_('UF'), max_length=2, choices=uf_list)
     cep = models.CharField(_('CEP'), max_length=9)
     person = models.ForeignKey(
-        "Person", verbose_name='pessoa', related_name=_('pessoa_endereco'))
+        "Person", verbose_name=_('pessoa'), related_name='pessoa_endereco')
 
     class Meta:
         verbose_name = u"endereço"
@@ -76,7 +79,7 @@ class Address(models.Model):
 
 class Phone(models.Model):
     person = models.ForeignKey(
-        "Person", verbose_name='pessoa', related_name=_('pessoa_fone'))
+        "Person", verbose_name=_('pessoa'), related_name='pessoa_fone')
     phone = models.CharField(_('telefone'), max_length=20)
     type_phone = models.CharField(
         _('tipo de telefone'), max_length=3, choices=type_phone_list, default='pri')

@@ -20,22 +20,24 @@
     <h1>Lista de {{ name_plural.capitalize }}</h1>
 
     <div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Profissão</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for occupation in occupation_list %}
-                <tr>
-                    <td>{{ occupation.occupation }}</td>
-                </tr>
-            {% empty %}
-                <p>Sem itens na lista.</p>
-            {% endfor %}
-            </tbody>
-        </table>
+        {% if occupation_list %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Profissão</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for occupation in occupation_list %}
+                    <tr>
+                        <td>{{ occupation.occupation }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="lead text-danger">Sem itens na lista.</p>
+        {% endif %}
     </div>
 
     <hr>

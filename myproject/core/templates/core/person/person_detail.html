@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Person Detail</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="col-lg-8">
+	<div class="col-md-2 column">
+		<img data-src="holder.js/120x120" class="img-square" />
+	</div>
+	<div class="col-md-offset-3 column">
+		<h1>{{ object.full_name }}, {{ object.get_treatment_display }}</h1>
+		<h2>{{ object.occupation }}</h2>
+		<h4><span class="glyphicon glyphicon-envelope"></span><a href="#"> {{ object.email }}</a></h4>
+	</div>
+
+	</br>
+
+    <table class="table table-user-information">
+  		<tbody>
+	      <tr>
+	        <th class="col-md-3 text-right">Sexo</th>
+	        <td>{{ object.get_gender_display }}</td>
+	      </tr>
+	      <tr>
+	        <th class="col-md-3 text-right">CPF</th>
+	        <td>{{ object.cpf }}</td>
+	      </tr>
+	      <tr>
+	        <th class="col-md-3 text-right">Nascimento</th>
+	        <td>{{ object.birthday }}</td>
+	      </tr>
+	      <tr>
+	        <th class="col-md-3 text-right">Ativo</th>
+	        <td>
+		        {% if object.active %}
+		            <span class="glyphicon glyphicon-ok-sign" style="color: #44AD41"></span>
+		        {% else %}
+		            <span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span>
+		        {% endif %}
+			</td>
+	      </tr>
+	      <tr>
+	        <th class="col-md-3 text-right">Bloqueado</th>
+	        <td>
+		        {% if object.blocked %}
+		            <span class="glyphicon glyphicon-ok-sign" style="color: #44AD41"></span>
+		        {% else %}
+		            <span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span>
+		        {% endif %}
+			</td>
+	      </tr>
+        </tbody>
+    </table>
+
+	{% if phones %}
+		<h3>Telefones</h3>
+
+		<div class="clearfix">
+			<ul class="list-group col-xs-6">
+				{% for phone in phones %}
+				  <li class="list-group-item">
+				    <span class="col-md-6 text-right">{{ phone.phone }}</span>
+				    <span>{{ phone.get_type_phone_display }}</span>
+				  </li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
+
+	{% if address %}
+		<h3>Endereço</h3>
+		<hr>
+
+		{% for address in address %}
+		  <p><strong>{{ address.get_type_address_display }}</strong></p>
+	    	<p>{{ address.address }}, {{ address.address_number }}</p>
+	        <p>{{ address.complement }}</p>
+	        <p><b>Bairro:</b> {{ address.district }}</p>
+	        <p><b>Cidade/UF:</b> {{ address.city }} - {{ address.uf }}</p>
+	        <p><b>CEP:</b> {{ address.cep }}</p>
+	        <hr>
+		{% endfor %}
+	{% endif %}
+
+</div>
+
+{% endblock content %}

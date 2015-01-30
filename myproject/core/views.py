@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 from django.core.urlresolvers import reverse_lazy
 from .models import Person, Occupation, Address, Phone, Product, Brand, Category
 
@@ -27,6 +27,20 @@ class PersonList(ListView):
         if var_get_search is not None:
             persons = persons.filter(first_name__icontains=var_get_search)
         return persons
+
+
+class PersonDetail(DetailView):
+    template_name = 'core/person/person_detail.html'
+    model = Person
+
+    def get_context_data(self, **kwargs):
+        context = super(PersonDetail, self).get_context_data(**kwargs)
+        person = Person.objects.get(pk=self.kwargs['pk'])
+        context['phones'] = Phone.objects.all().filter(
+            person_id=person)
+        context['address'] = Address.objects.all().filter(
+            person_id=person)
+        return context
 
 
 class PersonCreate(CreateView):

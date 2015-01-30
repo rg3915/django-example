@@ -20,52 +20,56 @@
     <h1>Lista de {{ name_plural.capitalize }} <font size="3">(NCM fictício)</font></h1>
 
     <div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Importado</th>
-                    <th class="text-center">NCM</th>
-                    <th>Produto</th>
-                    <th>Marca</th>
-					<th class="text-right">Custo</th>
-					<th class="text-right">IPI</th>
-					<th class="text-center">Estoque atual</th>
-					<th class="text-center">Estoque Min.</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for product in object_list %}
-				{% if product.stoq < product.stoq_min %}
-					<tr class="danger">
-				{% else %}
-					<tr>
-				{% endif %}
-						<td class="text-center">
-							{% if product.imported %}
-								<span class="glyphicon glyphicon-ok-sign" style="color: #44AD41"></span>
-							{% else %}
-								<span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span>
-							{% endif %}
-						</td>
-						<td class="text-center">{{ product.ncm }}</td>
-	                    <td>{{ product.product }}</td>
-                        <td>{{ product.brand }}</td>
-	                    <td class="text-right">{{ product.get_cost }}</td>
-						
-                        {% if product.get_ipi == "0" %}
-                            <td class="text-right">---</td>
-                        {% else %}
-                            <td class="text-right">{{ product.get_ipi }}%</td>
-                        {% endif %}
+        {% if product_list %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Importado</th>
+                        <th class="text-center">NCM</th>
+                        <th>Produto</th>
+                        <th>Marca</th>
+    					<th class="text-right">Custo</th>
+    					<th class="text-right">IPI</th>
+    					<th class="text-center">Estoque atual</th>
+    					<th class="text-center">Estoque Min.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for product in product_list %}
+    				{% if product.stoq < product.stoq_min %}
+    					<tr class="danger">
+    				{% else %}
+    					<tr>
+    				{% endif %}
+    						<td class="text-center">
+    							{% if product.imported %}
+    								<span class="glyphicon glyphicon-ok-sign" style="color: #44AD41"></span>
+    							{% else %}
+    								<span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span>
+    							{% endif %}
+    						</td>
+    						<td class="text-center">{{ product.ncm }}</td>
+    	                    <td>{{ product.product }}</td>
+                            <td>{{ product.brand }}</td>
+    	                    <td class="text-right">{{ product.get_cost }}</td>
+    						
+                            {% if product.get_ipi == "0" %}
+                                <td class="text-right">---</td>
+                            {% else %}
+                                <td class="text-right">{{ product.get_ipi }}%</td>
+                            {% endif %}
 
-						<td class="text-center">{{ product.stock }}</td>
-						<td class="text-center">{{ product.stock_min }}</td>
-					</tr>
-            {% empty %}
-                <p>Sem itens na lista.</p>
-            {% endfor %}
-            </tbody>
-        </table>
+    						<td class="text-center">{{ product.stock }}</td>
+    						<td class="text-center">{{ product.stock_min }}</td>
+    					</tr>
+                {% empty %}
+                    <p>Sem itens na lista.</p>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="lead text-danger">Sem itens na lista.</p>
+        {% endif %}
     </div>
 
     <hr>

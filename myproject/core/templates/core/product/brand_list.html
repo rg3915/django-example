@@ -20,22 +20,26 @@
     <h1>Lista de {{ name_plural.capitalize }}</h1>
 
     <div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Marca</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for brand in brand_list %}
-                <tr>
-                    <td>{{ brand.brand }}</td>
-                </tr>
-            {% empty %}
-                <p>Sem itens na lista.</p>
-            {% endfor %}
-            </tbody>
-        </table>
+        {% if brand_list %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Marca</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for brand in brand_list %}
+                    <tr>
+                        <td>{{ brand.brand }}</td>
+                    </tr>
+                {% empty %}
+                    <p>Sem itens na lista.</p>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="lead text-danger">Sem itens na lista.</p>
+        {% endif %}
     </div>
 
     <hr>

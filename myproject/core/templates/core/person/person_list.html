@@ -20,40 +20,42 @@
     <h1>Lista de {{ name_plural.capitalize }} <font size="3">(Nomes fictícios)</font></h1>
 
     <div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>CPF</th>
-                    <th>Email</th>
-                    <th>Nascimento</th>
-                    <th>Profissão</th>
-                    <th>Ativo</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for person in person_list %}
-                <tr>
-                    <td>{{ person.full_name }}, {{ person.get_treatment_display }}</td>
-                    <td>{{ person.cpf }}</td>
-                    <td>{{ person.email }}</td>
-                    <td>{{ person.birthday|date:"d/m/Y" }}</td>
-                    <td>{{ person.occupation }}</td>
-                    
-                    <td class="text-center">
-                        {% if person.active %}
-                            <span class="glyphicon glyphicon-ok-sign" style="color: #44AD41"></span>
-                        {% else %}
-                            <span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span>
-                        {% endif %}
-                    </td>
+        {% if person_list %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Email</th>
+                        <th>Nascimento</th>
+                        <th>Profissão</th>
+                        <th>Ativo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for person in person_list %}
+                    <tr>
+                        <td><a href="{{ person.get_person_detail_url }}">{{ person.full_name }}, {{ person.get_treatment_display }}</a></td>
+                        <td>{{ person.cpf }}</td>
+                        <td>{{ person.email }}</td>
+                        <td>{{ person.birthday|date:"d/m/Y" }}</td>
+                        <td>{{ person.occupation }}</td>
+                        
+                        <td class="text-center">
+                            {% if person.active %}
+                                <span class="glyphicon glyphicon-ok-sign" style="color: #44AD41"></span>
+                            {% else %}
+                                <span class="glyphicon glyphicon-minus-sign" style="color: #DE2121"></span>
+                            {% endif %}
+                        </td>
 
-                </tr>
-            {% empty %}
-                <p>Sem itens na lista.</p>
-            {% endfor %}
-            </tbody>
-        </table>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="lead text-danger">Sem itens na lista.</p>
+        {% endif %}
     </div>
 
     <hr>
